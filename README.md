@@ -86,5 +86,4 @@ heroku open
 
 ## Screenshots / Demo
 Add screenshots of the UI here (e.g., `static/img/screenshot.png`).
-Url : https://web-production-0c45c.up.railway.app/
 
