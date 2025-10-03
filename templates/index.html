@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uber Rides Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="brand" role="banner">
+    <div class="brand-inner">
+      <img class="brand-logo" src="{{ url_for('static', filename='css/Uber.jpg') }}" alt="Uber logo" width="36" height="36"/>
+      <span class="brand-title">Uber ML</span>
+    </div>
+  </header>
+  <main class="card" role="main">
+    <header class="card-header">
+      <h1>Uber Rides Prediction</h1>
+      <p class="subtitle">Enter the details to predict the number of weekly rides</p>
+    </header>
+
+    <form action="{{ url_for('predict') }}" method="post" class="form" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="price">Price per week</label>
+          <input id="price" name="Priceperweek" type="number" placeholder="e.g. 120" inputmode="numeric" step="1" min="0" required>
+        </div>
+
+        <div class="field">
+          <label for="population">Population</label>
+          <input id="population" name="Population" type="number" placeholder="e.g. 500000" inputmode="numeric" step="1" min="0" required>
+        </div>
+
+        <div class="field">
+          <label for="income">Monthly income</label>
+          <input id="income" name="Monthlyincome" type="number" placeholder="e.g. 3500" inputmode="numeric" step="1" min="0" required>
+        </div>
+
+        <div class="field">
+          <label for="parking">Average parking per month</label>
+          <input id="parking" name="Averageparkingpermonth" type="number" placeholder="e.g. 30" inputmode="numeric" step="1" min="0" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <section class="result" aria-live="polite">
+      <div class="result-title">Prediction</div>
+      <div class="result-value">{{ prediction_text }}</div>
+    </section>
+    {% endif %}
+  </main>
+</body>
+</html>
