@@ -5,11 +5,19 @@
 
 Modern Flask app to predict weekly Uber rides based on simple inputs. Styled with an Uber-like theme and ready for deployment.
 
+## Demo
+- Live: https://web-production-0c45c.up.railway.app/
+
 ## Features
 - Flask backend serving a scikit-learn model (`model.pkl`)
 - Clean, responsive UI with labeled inputs and result card
 - Production-ready setup: `wsgi.py`, `Procfile`, `.gitignore`, relative model path
  - Easy deploy on Render/Railway/Heroku
+
+## Tech Stack
+- Flask, Jinja2
+- scikit-learn, numpy, pandas
+- Gunicorn (production server)
 
 ## Local Setup
 ```bash
@@ -24,7 +32,7 @@ python app.py
 ```
 ├── app.py
 ├── wsgi.py
-├── model.pkl                # not committed, keep locally
+├── model.pkl                # included for deployment on free tiers
 ├── requirements.txt
 ├── Procfile                 # for Gunicorn/Platform-as-a-Service
 ├── templates/
@@ -39,23 +47,22 @@ python app.py
 ```
 
 ## GitHub: What to Commit
-Commit code, templates, and static assets. Do NOT commit big data/model files. This repo ignores `*.pkl` by default; share your `model.pkl` via Releases, Drive, or retrain script.
+Commit code, templates, and static assets. For production-sized artifacts prefer Releases/Storage. `model.pkl` is included here for easy deployment on free hosting.
 
 ## Flask Highlights
-- Simple routes: `/` (form) and `/predict` (inference)
-- Jinja templates and static assets for clean UX
-- Model loaded once from relative path for portability
-- Ready for JSON API switch if needed
+- Routes: `/` (form) and `/predict` (inference)
+- Jinja templates + static assets for a clean UX
+- Model loaded once via relative path for portability
+- Easy to switch `/predict` to JSON API if needed
 
 ## Deploy (Render / Railway)
 These platforms support Python + Gunicorn easily.
 
-1) Push to GitHub.
-2) Create a new Web Service from your repo.
-3) Build command: `pip install -r requirements.txt`
-4) Start command: `gunicorn wsgi:app --bind 0.0.0.0:$PORT`
-5) Add environment variables as needed:
-   - `FLASK_DEBUG=0`
+1) Push to GitHub  
+2) Create a new Web Service from your repo  
+3) Build: `pip install -r requirements.txt`  
+4) Start: `gunicorn wsgi:app --bind 0.0.0.0:$PORT`  
+5) Env vars: `FLASK_DEBUG=0`
 
 The service will expose a public URL once deployed.
 
@@ -74,9 +81,10 @@ heroku open
 
 ## Notes
 - `app.py` loads `model.pkl` from the project root by relative path.
-- For private models, consider storing the artifact in object storage and downloading at startup.
-- For AJAX responses, adapt `/predict` to return `jsonify` and update `static/js/script.js` accordingly.
+- For private models, consider object storage and downloading at startup.
+- For AJAX, return `jsonify` from `/predict` and update `static/js/script.js`.
 
 ## Screenshots / Demo
-Add screenshots of the UI and (optionally) a deployment URL demo here.
+Add screenshots of the UI here (e.g., `static/img/screenshot.png`).
+Url : https://web-production-0c45c.up.railway.app/
 
