@@ -85,5 +85,5 @@ heroku open
 - For AJAX, return `jsonify` from `/predict` and update `static/js/script.js`.
 
 ## Screenshots / Demo
-Add screenshots of the UI here (e.g., `static/img/screenshot.png`).
+![UI Screenshot](static/img/screenshot.png)
 
