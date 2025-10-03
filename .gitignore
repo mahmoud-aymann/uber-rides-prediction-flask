@@ -45,7 +45,7 @@ instance/
 .python-version
 
 # Models / datasets (keep local)
-*.pkl
+# *.pkl
 *.pickle
 *.joblib
 *.h5

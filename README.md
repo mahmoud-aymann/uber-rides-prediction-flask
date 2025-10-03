@@ -1,7 +1,7 @@
 # Uber Rides Prediction (Flask + scikit-learn)
 
-![CI](https://img.shields.io/github/actions/workflow/status/mahmoud-aymann/uber-rides-prediction-flask/ci.yml?branch=main)
-![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.8+-blue)
+![Flask](https://img.shields.io/badge/flask-2.0+-green)
 
 Modern Flask app to predict weekly Uber rides based on simple inputs. Styled with an Uber-like theme and ready for deployment.
 

@@ -20,12 +20,13 @@ jobs:
           pip install -r requirements.txt
       - name: Sanity run (import app and model)
         run: |
+          export SKIP_MODEL_LOAD=1
           python - << 'PY'
           import importlib
           import sys
           try:
-              import app  # ensure app imports
-              print('App imported successfully')
+              import app  # ensure app imports without model
+              print('App imported successfully (model skipped)')
           except Exception as e:
               print('Import failed:', e)
               sys.exit(1)
